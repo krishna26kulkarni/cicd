@@ -10,7 +10,7 @@ node('agent'){
        sh 'mvn clean install'
   }
   stage('push artifact to s3'){
-       def rename = 'mv ./target/*.war ./target/webapp_`date +%Y%m%d`.war'
-       def push = 'aws s3 cp ./target/*.war s3://artifacto-files/artifacts/'
+       sh mv ./target/*.war ./target/webapp_`date +%Y%m%d`.war
+       sh aws s3 cp ./target/*.war s3://artifacto-files/artifacts/
   }
 }
