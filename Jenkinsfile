@@ -22,10 +22,10 @@ pipeline{
   }
   post{
     success{
-      script{
-          mv ./target/*.war ./target/webapp_$(date +%Y%m%d).war
+      sh '''
+          mv ./target/*.war ./target/webapp_`date +%Y%m%d`.war
           aws s3 cp ./target/*.war s3://artifacto-files/artifacts/
-      }
+      '''
     }
   }
 }
