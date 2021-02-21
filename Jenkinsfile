@@ -8,7 +8,7 @@ pipeline{
   stages{
     stage('Pull code'){
       steps{
-       checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: 'https://github.com/krishna26kulkarni/cicd']]])
+       git branch: 'main', changelog: false, credentialsId: 'github', poll: false, url: 'https://github.com/krishna26kulkarni/cicd'
       }
     }
     stage('Build'){
