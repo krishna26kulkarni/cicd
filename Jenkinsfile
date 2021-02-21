@@ -20,4 +20,9 @@ pipeline{
       }
     }
   }
+  post{
+    success{
+      sh 'aws s3 cp ./target/*.war s3://artifacto-files/artifacts/'   
+    }
+  }
 }
