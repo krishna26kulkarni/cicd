@@ -1,0 +1,12 @@
+node('agent'){
+  stage('pull code'){
+    git branch: 'main', changelog: false, credentialsId: 'github', poll: false, url: 'https://github.com/krishna26kulkarni/cicd'
+  }
+  stage('Build'){
+       sh 'mvn clean install'
+  }
+  stage('push artifact to s3'){
+       mv ./target/*.war ./target/webapp_`date +%Y%m%d`.war
+       aws s3 cp ./target/*.war s3://artifacto-files/artifacts/
+  }
+}
