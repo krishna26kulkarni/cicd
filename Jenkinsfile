@@ -7,7 +7,7 @@ pipeline{
   
   stages{
     stage('Pull code'){
-       checkout([$class: 'GitSCM', branches: [[name: '*/main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/krishna26kulkarni/demo']]])
+       checkout([$class: 'GitSCM', branches: [[name: '*/main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/krishna26kulkarni/cicd']]])
     }
     stage('Build'){
        sh 'mvn clean package'
