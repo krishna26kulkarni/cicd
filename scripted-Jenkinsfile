@@ -7,7 +7,7 @@ node('agent'){
   }
   stage('Build'){
        def mvn = tool 'mvn-3'
-       sh 'mvn clean install'
+       sh 'mvn clean install -DskipTests'
   }
   stage('push artifact to s3'){
        sh '''
