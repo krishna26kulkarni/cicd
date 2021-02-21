@@ -1,4 +1,7 @@
 node('agent'){
+  environment{
+     JAVA_HOME = '/usr/local/bin/jdk11/'
+  }
   stage('pull code'){
     git branch: 'main', changelog: false, credentialsId: 'github', poll: false, url: 'https://github.com/krishna26kulkarni/cicd'
   }
