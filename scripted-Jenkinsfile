@@ -3,6 +3,7 @@ node('agent'){
     git branch: 'main', changelog: false, credentialsId: 'github', poll: false, url: 'https://github.com/krishna26kulkarni/cicd'
   }
   stage('Build'){
+       def mvn = tool 'mvn-3'
        sh 'mvn clean install'
   }
   stage('push artifact to s3'){
