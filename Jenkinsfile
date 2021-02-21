@@ -4,6 +4,9 @@ pipeline{
   tools{
     maven 'mvn-3'
   }
+  options {
+    buildDiscarder(logRotator(numToKeepStr:'2'))
+  }
   
   stages{
     stage('Pull code'){
