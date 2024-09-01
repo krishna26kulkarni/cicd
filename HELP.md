@@ -1,4 +1,4 @@
-# Read Me First
+# Read Me First Doc
 The following was discovered as part of building this project:
 
 * The original package name 'com.example.demo-project' is invalid and this project uses 'com.example.demoproject' instead.
